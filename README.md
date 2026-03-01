@@ -21,13 +21,11 @@
 # Check if the server is online
 curl -s https://health.droidvm.dev | jq .status
 
-# SSH into the server
-ssh lextex@ssh.droidvm.dev
-
-# Open the AI dashboard
+# Open the AI dashboard (requires device pairing)
 open https://openclaw.droidvm.dev
 ```
 
+> **Note:** SSH access is only available via Tailscale private VPN for security.
 </details>
 
 <details>
@@ -121,9 +119,9 @@ graph TB
 |---------|------|--------|---------|
 | **OpenClaw Gateway** | 18789 | [openclaw.droidvm.dev](https://openclaw.droidvm.dev) | AI agent dashboard |
 | **Health API** | 8080 | [health.droidvm.dev](https://health.droidvm.dev) | System monitoring |
-| **SSH Server** | 22 | [ssh.droidvm.dev](ssh://ssh.droidvm.dev) | Remote shell |
 | **Klydo MCP** | 8000 | [klydo-mcp.droidvm.dev](https://klydo-mcp.droidvm.dev) | Fashion search |
-| **Tailscale** | 41641 | `asus-vivobooks15-1` | Private VPN |
+| **SSH Server** | 22 | Tailscale only (private) | Secure remote shell |
+| **Tailscale VPN** | 41641 | `asus-vivobooks15-1` | Private network access |
 
 ---
 
@@ -191,20 +189,17 @@ graph LR
 
 ## Access Your Server
 
-### From Anywhere (Public)
+### From Anywhere (Public - HTTP Services Only)
 
 ```bash
-# SSH via Cloudflare Tunnel
-ssh lextex@ssh.droidvm.dev
-
 # Check health status
 curl https://health.droidvm.dev | jq .
 
-# Access AI dashboard
+# Access AI dashboard (requires device pairing)
 open https://openclaw.droidvm.dev
 ```
 
-### From Your Network (Private via Tailscale)
+### Secure Shell Access (Tailscale Private VPN Only)
 
 ```bash
 # SSH via VPN
@@ -302,25 +297,23 @@ claude-code --help
 
 ## Quick Commands
 
+> **Note:** SSH commands require Tailscale VPN connection
+
 ```bash
-# Check system health
+# Check system health (public)
 curl https://health.droidvm.dev | jq .overall_healthy
 
-# SSH into the server
-ssh lextex@ssh.droidvm.dev
+# SSH into the server (via Tailscale)
+ssh lextex@asus-vivobooks15-1
 
-# Restart OpenClaw
-ssh lextex@ssh.droidvm.dev "systemctl --user restart openclaw-gateway"
+# Restart OpenClaw (via Tailscale)
+ssh lextex@asus-vivobooks15-1 "systemctl --user restart openclaw-gateway"
 
-# View OpenClaw logs
-ssh lextex@ssh.droidvm.dev "journalctl --user -u openclaw-gateway -f"
+# View OpenClaw logs (via Tailscale)
+ssh lextex@asus-vivobooks15-1 "journalctl --user -u openclaw-gateway -f"
 
 # Check Tailscale status
-ssh lextex@ssh.droidvm.dev "tailscale status"
-
-# Tunnel into localhost (port forwarding)
-ssh -L 18789:localhost:18789 lextex@ssh.droidvm.dev
-# Then open: http://localhost:18789
+tailscale status
 ```
 
 ---
