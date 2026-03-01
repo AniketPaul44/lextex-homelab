@@ -8,6 +8,36 @@
 [![Access](https://img.shields.io/badge/Access-Tailscale%20%7C%20Cloudflare-informational)](https://health.droidvm.dev)
 [![WSL](https://img.shields.io/badge/Platform-WSL2-2496ED)](https://learn.microsoft.com/en-us/windows/wsl/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/myselfshravan/lextex-homelab?style=social)](https://github.com/myselfshravan/lextex-homelab/stargazers)
+
+---
+
+## Quick Start
+
+<details>
+<summary>🚀 Access the live server right now</summary>
+
+```bash
+# Check if the server is online
+curl -s https://health.droidvm.dev | jq .status
+
+# SSH into the server
+ssh lextex@ssh.droidvm.dev
+
+# Open the AI dashboard
+open https://openclaw.droidvm.dev
+```
+
+</details>
+
+<details>
+<summary>📖 Set up your own homelab</summary>
+
+1. Clone this repo: `git clone https://github.com/myselfshravan/lextex-homelab.git`
+2. Follow the [Complete Setup Guide](./system-setup-guide.md)
+3. Configure your services and enjoy!
+
+</details>
 
 ---
 
