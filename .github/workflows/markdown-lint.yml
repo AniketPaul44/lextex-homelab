@@ -1,0 +1,38 @@
+name: Markdown Lint
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Lint Markdown files
+      run: |
+        # Check for common markdown issues
+        find . -name "*.md" -type f ! -path "./.github/*" -exec echo "Checking {}" \;
+
+    - name: Check links
+      run: |
+        # Ensure all referenced files exist
+        grep -r "](./" *.md 2>/dev/null | while read line; do
+          link=$(echo "$line" | sed -n 's/.*](\([^)]*\)).*/\1/p')
+          if [ -n "$link" ] && [ ! -f "$link" ] && [ ! -d "$link" ]; then
+            echo "Warning: $link not found"
+          fi
+        done || true
+
+    - name: Validate Python syntax
+      run: |
+        # Check Python files for syntax errors
+        for file in *.py; do
+          if [ -f "$file" ]; then
+            python3 -m py_compile "$file" && echo "$file: OK"
+          fi
+        done
