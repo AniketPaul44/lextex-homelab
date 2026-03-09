@@ -105,7 +105,7 @@ graph TB
 |-----------|------|-----|
 | **Hardware** | ASUS VivoBook S15 | Intel i5-12500H (12 cores), 16GB RAM |
 | **OS** | Ubuntu 24.04.3 LTS | Running on WSL2 (12GB RAM allocated) |
-| **AI** | OpenClaw v2026.2.26 | "Lexi" — autonomous AI agent |
+| **AI** | OpenClaw v2026.3.8 | 9 specialized AI agents including fraud detection |
 | **VPN** | Tailscale | Private mesh network (100.85.179.13) |
 | **Tunnel** | cloudflared | Public access via droidvm.dev |
 | **Health** | Custom Python API | Real-time monitoring at `/health` |
@@ -232,13 +232,24 @@ The server runs a custom health monitoring API at [`https://health.droidvm.dev`]
 {
   "host": "ASUS-VivoBookS15",
   "status": "healthy",
-  "uptime": "5d 12h 30m",
-  "load": {"1m": 0.42, "5m": 0.35, "15m": 0.28},
+  "timestamp": 1773096911,
+  "uptime": "4h 24m",
+  "load": {"1m": 0.59, "5m": 0.2, "15m": 0.1},
   "memory": {
-    "total_mb": 11750,
-    "used_mb": 2847,
-    "available_mb": 8903,
-    "usage_pct": 24.2
+    "total_mb": 11961,
+    "used_mb": 3610,
+    "available_mb": 8351,
+    "usage_pct": 30.2
+  },
+  "services": {
+    "openclaw-gateway": {"running": true, "status": "active"},
+    "tailscaled": {"running": true, "status": "active"},
+    "cloudflared": {"running": true, "status": "active"}
+  },
+  "openclaw": {
+    "gateway_reachable": true,
+    "response_time_ms": 6.7,
+    "api_healthy": true
   },
   "overall_healthy": true
 }
@@ -246,17 +257,20 @@ The server runs a custom health monitoring API at [`https://health.droidvm.dev`]
 
 ---
 
-## AI Agent: OpenClaw (Lexi)
+## AI Agent Platform: OpenClaw (Lexi)
 
-The server runs **OpenClaw**, an autonomous AI agent that you control via a web dashboard.
+The server runs **OpenClaw**, featuring **Lexi** - an intelligent AI agent platform with 9 specialized agents and advanced business automation.
 
 **Access:** [`https://openclaw.droidvm.dev`](https://openclaw.droidvm.dev)
 
-**Capabilities:**
-- 🧠 Multi-model AI (Zai, Groq, Ollama)
-- 💬 Messaging integration (WhatsApp, Telegram)
-- 🔌 MCP server support
-- 🎯 Custom skills and tools
+**Lexi's Ecosystem:**
+- 🧠 Multi-model AI (Zai GLM-4.7, Groq Llama, Ollama)
+- 💬 Multi-channel integration (WhatsApp, Telegram, Slack)
+- 🔌 MCP server support with database integrations
+- 🎯 Custom skills and business automation tools
+- 🤖 **9 specialized agents** with intelligent routing
+- 📊 **Real-time business intelligence** and data analysis
+- 🔄 **30+ active sessions** with continuous learning
 
 **First-time setup:**
 1. Open the dashboard
